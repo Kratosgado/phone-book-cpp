@@ -14,10 +14,12 @@ int main() {
       sf::Event event;
       while (window.pollEvent(event)) {
          if (event.type == sf::Event::Closed) window.close();
+         appView.handleInput(event);
       }
       window.clear(backgroundColor);
-      // window.setView(appView.getCameraView());
       appView.draw(window);
+
+      window.setView(appView.getCameraView());
       window.display();
    }
    return 0;

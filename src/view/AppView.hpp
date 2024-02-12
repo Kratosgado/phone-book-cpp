@@ -2,19 +2,21 @@
 #define AppView_H
 
 #include <SFML/Graphics.hpp>
+#include "BottomNavBar.hpp"
+#include "TopSearchBar.hpp"
 
-class AppView {
+class AppView : public BottomNavBar, TopSearchBar {
 private:
    sf::Font font;
    sf::View camera;
-   sf::RectangleShape bottomBar;
 
    void drawBottomBar(sf::RenderWindow& window);
 
 public:
    AppView(const sf::RenderWindow& window);
 
-   void draw( sf::RenderWindow& window);
+   void draw(sf::RenderWindow& window);
+   void handleInput(sf::Event event);
 
    sf::View getCameraView() const;
 };
